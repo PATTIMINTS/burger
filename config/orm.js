@@ -34,7 +34,7 @@ function objToSql(ob) {
 
 var orm = {
     all: function(tableInput, cb) {
-      var queryString = "SELECT * FROM" + tableInput + ";";
+      var queryString = "SELECT * FROM " + tableInput + ";";
       connection.query(queryString, function(err, result) {
         if (err) {
           throw err;
@@ -44,14 +44,14 @@ var orm = {
     },
                 
     create: function(table, cols, vals, cb) {
-        var queryString = "INSERT INTO" + table;
+        var queryString = "INSERT INTO " + table;
     
         queryString += " (";
         queryString += cols.toString();
         queryString += ") ";
         queryString += "VALUES (";
         queryString += printQuestionMarks(vals.length);
-        queryString += ") ";
+        queryString += ")";
     
         console.log(queryString);
     
@@ -64,11 +64,11 @@ var orm = {
         });
       }, 
       update: function(table, objColVals, condition, cb) {
-        var queryString = "UPDATE" + table;
+        var queryString = "UPDATE " + table;
     
-        queryString += "SET";
+        queryString += " SET ";
         queryString += objToSql(objColVals);
-        queryString += "WHERE";
+        queryString += " WHERE ";
         queryString += condition;
     
         console.log(queryString);
@@ -82,8 +82,8 @@ var orm = {
       },
       
       delete: function(table, condition, cb) {
-        var queryString = "DELETE FROM" + table;
-        queryString += "WHERE";
+        var queryString = "DELETE FROM " + table;
+        queryString += " WHERE ";
         queryString += condition;
     
         connection.query(queryString, function(err, result) {
