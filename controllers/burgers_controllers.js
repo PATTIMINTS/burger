@@ -1,10 +1,10 @@
-var express = require("express");
-var router = express.Router();
-var burger = require("../models/burger");
+const express = require("express");
+const router = express.Router();
+const burger = require("../models/burger");
 
 router.get("/", function (req, res) {
     burger.all(function (data) {
-        var hbsObject = {
+        let hbsObject = {
             burgers: data
         };
         console.log(hbsObject);
@@ -24,7 +24,7 @@ router.post("/api/burgers", function(req, res) {
   });
   
   router.put("/api/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
+    let condition = "id = " + req.params.id;
   
     console.log("condition", condition);
   
@@ -41,7 +41,7 @@ router.post("/api/burgers", function(req, res) {
   });
   
   router.delete("/api/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
+    let condition = "id = " + req.params.id;
   
     burger.delete(condition, function(result) {
       if (result.affectedRows == 0) {

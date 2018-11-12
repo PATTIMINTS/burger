@@ -19,5 +19,20 @@ li {
     margin-bottom: 5px;
   }
   
+  h1 {
+    font-family: fantasy;
+
+
+  }
+
+  h2 {
+    color: red;
+  }
+
+  body {
+    margin: auto;
+    width: 60%;
+    background-color: rgb(240, 215, 106);
+  }
   
   
